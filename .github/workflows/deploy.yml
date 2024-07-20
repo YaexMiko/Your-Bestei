@@ -27,7 +27,7 @@ jobs:
         cd Johan
         git pull origin main
         docker build -t johan .
-        docker stop nett || true
+        docker stop johan || true
         docker rm johan || true
         docker run -d --name johan -p 1211:1211 nett
         EOF
