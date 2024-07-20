@@ -1,0 +1,33 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - Netflix
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: SSH and deploy
+      env:
+        VPS_IP: ${{ secrets.VPS_IP }}
+        VPS_USER: ${{ secrets.VPS_USER }}
+      run: |
+        ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_IP << 'EOF'
+        cd Johan
+        git pull origin Netflix
+        docker build -t nett .
+        docker stop nett || true
+        docker rm nett || true
+        docker run -d --name nett -p 1212:1212 nett
+        EOF
