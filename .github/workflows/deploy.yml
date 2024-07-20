@@ -24,7 +24,9 @@ jobs:
         VPS_USER: ${{ secrets.VPS_USER }}
       run: |
         ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_IP << 'EOF'
-        cd Johan
+        cd Johan 
+        git fetch origin
+        git checkout main
         git pull origin main
         docker build -t johan .
         docker stop johan || true
