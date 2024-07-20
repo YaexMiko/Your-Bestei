@@ -25,9 +25,9 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_IP << 'EOF'
         cd Johan
-        git pull origin Netflix
-        docker build -t nett .
+        git pull origin main
+        docker build -t johan .
         docker stop nett || true
-        docker rm nett || true
-        docker run -d --name nett -p 1212:1212 nett
+        docker rm johan || true
+        docker run -d --name johan -p 1211:1211 nett
         EOF
