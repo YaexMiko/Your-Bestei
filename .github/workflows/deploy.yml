@@ -24,7 +24,11 @@ jobs:
         VPS_USER: ${{ secrets.VPS_USER }}
       run: |
         ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_IP << 'EOF'
-        cd Johan 
+        rm -rf Johan
+        git config --global user.email yashoswal18@gmail.com 
+        git config --global user.name mergebot
+        git clone https://github.com/Itzmepapa123/Johan.git
+        cd Johan
         git fetch origin
         git checkout main
         git pull origin main
