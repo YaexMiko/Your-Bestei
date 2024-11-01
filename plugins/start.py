@@ -90,7 +90,7 @@ async def start_command(client: Client, message: Message):
             except:
                 pass
         await message.reply_text(f"<b><i>➥ 𝚃𝚑𝚒𝚜 𝙼𝚊𝚜𝚜𝚊𝚐𝚎 𝚆𝚒𝚕𝚕 𝙱𝚎 𝙳𝚎𝚕𝚎𝚝𝚎𝚍 𝙸𝚗 30 𝙼𝚒𝚗𝚞𝚝𝚎𝚜.\n➥ 𝙼𝚞𝚜𝚝 𝙹𝚘𝚒𝚗 𝙾𝚞𝚛 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 𝙰𝚗𝚍 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 𝙶𝚛𝚘𝚞𝚙\n1. ⚡@Team_Originals⚡️\n2. ⚡️@The_Original_Chat⚡</i></b>")
-        await message.reply_text(f"<b>➥Tᴇᴀᴍ Oʀɪɢɪɴᴀʟs  \n────────────────────────\nAnime Channel: @Anime_Fair\nHentai Channel: @Cultured_Fair\nManga Channel: @Manga_Fair\nMovie Channel: @Fair_Movies\n────────────────────────\nVisit @Chat_Weeb for more info..</b>")
+        await message.reply_text(f"<b>➥Tᴇᴀᴍ Oʀɪɢɪɴᴀʟs  \n────────────────────────\n𝙲𝚘𝚗𝚝𝚎𝚌𝚝 𝙾𝚠𝚗𝚎𝚛: @Orignal_Owner_bot\n────────────────────────\n</b>")
         
         return
     else:
