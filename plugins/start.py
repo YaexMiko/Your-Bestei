@@ -15,7 +15,7 @@ from config import ADMINS, OWNER_ID, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISAB
 from helper_func import subscribed1, subscribed2, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 async def delete_after_delay(message: Message, delay):
-    await asyncio.sleep(30)
+    await asyncio.sleep(1800)
     await message.delete()
 
 import pyrogram.utils
@@ -58,11 +58,11 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("Please wait...")
+        temp_msg = await message.reply("𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝...")
         try:
             messages = await get_messages(client, ids)
         except:
-            await message.reply_text("Something went wrong..!")
+            await message.reply_text("𝚂𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐..!")
             return
         await temp_msg.delete()
 
@@ -83,14 +83,14 @@ async def start_command(client: Client, message: Message):
                     k = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
                     await asyncio.sleep(0.5)
                     if k is not None:
-                        asyncio.create_task(delete_after_delay(k, 30))
+                        asyncio.create_task(delete_after_delay(k, 1800))
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
             except:
                 pass
-        await message.reply_text(f"<b><i>\n──────────────────────────\n➥ 𝚃𝚑𝚒𝚜 𝙼𝚊𝚜𝚜𝚊𝚐𝚎 𝚆𝚒𝚕𝚕 𝙱𝚎 𝙳𝚎𝚕𝚎𝚝𝚎𝚍 𝙸𝚗 30 𝙼𝚒𝚗𝚞𝚝𝚎𝚜.\n➥ 𝙼𝚞𝚜𝚝 𝙹𝚘𝚒𝚗 𝙾𝚞𝚛 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 𝙰𝚗𝚍 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 𝙶𝚛𝚘𝚞𝚙.\n──────────────────────────\n1. ⚡@Team_Originals⚡️\n2. ⚡️@The_Original_Chat⚡\n──────────────────────────\n</i></b>")
-        await message.reply_text(f"<b>➥Tᴇᴀᴍ Oʀɪɢɪɴᴀʟs  \n──────────────────────────\n𝙲𝚘𝚗𝚝𝚎𝚌𝚝 𝙾𝚠𝚗𝚎𝚛: @Orignal_Owner_bot\n──────────────────────────\n</b>")
+        await message.reply_text(f"<b><i>\n──────────────────────────\n➥ 𝚃𝚑𝚒𝚜 𝙼𝚊𝚜𝚜𝚊𝚐𝚎 𝚆𝚒𝚕𝚕 𝙱𝚎 𝙳𝚎𝚕𝚎𝚝𝚎𝚍 𝙸𝚗 30 𝙼𝚒𝚗𝚞𝚝𝚎𝚜.\n➥ 𝙼𝚞𝚜𝚝 𝙹𝚘𝚒𝚗 𝙾𝚞𝚛 𝙲𝚑𝚊𝚗𝚗𝚎𝚕.\n──────────────────────────\n⚡@Cutei_Girls⚡️\n──────────────────────────\n</i></b>")
+        await message.reply_text(f"<b>➥Tᴇᴀᴍ Hᴇᴀᴠᴇɴ \n─────────────────────────────────\n➥𝙸𝚏 𝚈𝚘𝚞 𝙷𝚊𝚟𝚎 𝙰𝚗𝚢 𝙿𝚛𝚘𝚋𝚕𝚎𝚖 𝚁𝚎𝚕𝚊𝚝𝚎𝚍 𝚃𝚘 𝙲𝚘𝚗𝚝𝚎𝚗𝚝 𝚃𝚑𝚊𝚝 𝚆𝚊𝚜 𝚁𝚎𝚖𝚘𝚟𝚎𝚍 𝙸𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕/𝙱𝚘𝚝 𝙸𝚜 𝙽𝚘𝚝 𝚆𝚘𝚛𝚔𝚒𝚗𝚐 𝙿𝚛𝚘𝚙𝚎𝚛𝚕𝚢 𝚃𝚑𝚎𝚗 𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚘𝚗𝚝𝚊𝚌𝚝 𝙷𝚎𝚛𝚎 𝙶𝚒𝚟𝚎𝚗 𝙱𝚎𝚕𝚘𝚠.\n➥𝙲𝚘𝚗𝚝𝚎𝚌𝚝 𝙾𝚠𝚗𝚎𝚛: @Heaven_Owner_Bot\n➥𝙲𝚘𝚗𝚝𝚎𝚌𝚝 𝙰𝚍𝚖𝚒𝚗: @Orignal_Owner_bot\n─────────────────────────────────</b>")
         
         return
     else:
