@@ -15,7 +15,7 @@ from config import ADMINS, OWNER_ID, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISAB
 from helper_func import subscribed1, subscribed2, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 async def delete_after_delay(message: Message, delay):
-    await asyncio.sleep(1800)
+    await asyncio.sleep(30)
     await message.delete()
 
 import pyrogram.utils
@@ -83,7 +83,7 @@ async def start_command(client: Client, message: Message):
                     k = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
                     await asyncio.sleep(0.5)
                     if k is not None:
-                        asyncio.create_task(delete_after_delay(k, 1800))
+                        asyncio.create_task(delete_after_delay(k, 30))
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
